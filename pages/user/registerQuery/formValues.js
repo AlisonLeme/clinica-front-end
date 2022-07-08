@@ -1,5 +1,9 @@
 import * as yup from "yup";
 
+const FormValues = () => {
+  return <></>;
+};
+
 const initialValues = {
   name: "",
   date: "",
@@ -27,3 +31,5 @@ const validationSchema = yup.object().shape({
 });
 
 export { initialValues, validationSchema };
+
+export default FormValues;
