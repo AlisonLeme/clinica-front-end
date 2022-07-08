@@ -3,10 +3,13 @@ import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
+import { SessionProvider } from "next-auth/react";
 
 import "../styles/globals.css";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
+import { SnackbarProvider } from "../src/contexts/SnackBar";
+import CheckAuth from "../src/components/checkAuth/CheckAuth";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -19,10 +22,18 @@ export default function MyApp(props) {
         <title>Clinica</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <SessionProvider session={pageProps.session}>
+        <ThemeProvider theme={theme}>
+          <SnackbarProvider>
+            <CssBaseline />
+            {Component.requireAuth ? (
+              <CheckAuth Component={Component} pageProps={pageProps} />
+            ) : (
+              <Component {...pageProps} />
+            )}
+          </SnackbarProvider>
+        </ThemeProvider>
+      </SessionProvider>
     </CacheProvider>
   );
 }

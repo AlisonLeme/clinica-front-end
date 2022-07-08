@@ -1,0 +1,28 @@
+.boxFilmes {
+    position: relative;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #1F0626;
+}
+
+.boxBtn {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+
+.boxBtn2 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.titleFilmes {
+    margin: 0 auto;
+    text-align: center;
+    -webkit-text-stroke: 2px #542c5f;
+    letter-spacing: 2px;
+    position: relative;
+    text-transform: uppercase;
+    color: #1F0626;
+}

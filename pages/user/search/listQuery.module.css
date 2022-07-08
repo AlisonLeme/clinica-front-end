@@ -1,0 +1,16 @@
+.box {
+    background-color: rgb(247, 247, 247);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.searchBox {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.gridCards {
+    margin-top: 5px;
+}
